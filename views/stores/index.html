@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="wap-font-scale" content="no" />
+    <title>门店列表</title>
+    <link rel="shortcut icon" href="http://www.suning.com/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="http://res.suning.cn/project/mvs/RES/common/style/base/2.0/base.css?v=${resVersion}">
+    <link rel="stylesheet" type="text/css" href="/css/index.css?v=${versionNo}">
+</head>
+<body>
+<!-- loading效果开始 -->
+<!-- <div class="loagMask" id="loading">
+    <div class="sn-mask-loading fixedLoading"></div>
+</div> -->
+
+<!-- <div class="error-cont hide">
+    <div class="ico-logo ico-none">该地区未开通导购，你可以先去其他地区预约</div>
+    <a href="javascript:void(0)" class="sn-btn sn-btn-positive sn-clerk" id="goToReserve">去预约</a>
+</div> -->
+
+<div class="store-list-cont">
+    <div class="line-ad"></div>
+    <div class="store-city">
+        <a id="address"></a>
+        <a href="./intro.html" class="btn-intro"><span>V购介绍</span></a>
+    </div>
+    <div id="S_list_view" class="lazyimg">
+        <ul class="store-ul" id="storesList">
+                {{each stores as store i}}
+                <li class="store-list">
+                    <a href="./salespersons.html" data-storecode="{{store.storeCode}}">
+                        <div class="list-cont">
+                            <div class="list-logo">
+                                <img {{if i>=5}}data-src="{{store.guidePhoto}}"{{/if}} src="{{if i<5}}{{store.guidePhoto}}{{/if}}" >
+                            </div>
+                            <!--<img class="list-logo" src="{{store.guidePhoto}}">-->
+                            <div class="store-address">
+                                <h2 class="{{if store.storeType!='1'}}notCloudShop {{/if}}address-title">{{store.storeName}}</h2>
+                                <p class="address-msg">{{store.storeAddress}}</p>
+
+                                <!--<div class="shop-tag"></div>-->
+                                <div class="{{if i==0}}shop-tag {{/if}}{{if store.isMaxHot}}shop-hot{{/if}}"></div>
+
+                                <div class="add-likes">
+                                    <!--如果点攒数为0：不显示心：hide-->
+                                    <!--如果关注了就是红心：shop-likes-->
+                                    <!--如果数字大于9999，就显示9999+-->
+                                    <div class="{{if store.isAttention}}shop-likes {{/if}}{{if store.storeAttentionNum == 0}}hide {{/if}} likes-icon">
+                                        {{if store.storeAttentionNum > 9999}} 9999+ {{else}} {{store.storeAttentionNum}}{{/if}}
+                                    </div>
+                                    <div class="{{if !store.storeFar}}hide {{/if}}shop-add">{{store.storeFar}}km</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {{/each}}
+        </ul>
+    </div>
+</div>
+
+
+<!-- <div class="maskCont hide"></div>
+<div class="cart-addr-chooser">
+    <div class="sn-nav">
+        <div class="sn-nav-title of">选择城市</div>
+        <div class="sn-nav-right">
+            <a href="#" class="link-icon">X</a>
+        </div>
+    </div>
+    <ul class="cart-tabnavi">
+        <li class="provinceList selected">
+            <input placeholder="省" readonly>
+        </li>
+        <li class="cityList">
+            <input placeholder="市" readonly>
+        </li>
+    </ul>
+    <div class="cart-container">
+        <div class="cart-content">
+            <div class="cart-tab current">
+                <div class="cart-scroll" id="storeProvinceList">
+                    <script id="storeProvinceListTpl" type="text/html">
+                        <ul>
+                            {{each provinceList as province index}}
+                            <li data-provinceCode="{{province.provinceCode}}">{{province.provinceName}}</li>
+                            {{/each}}
+                        </ul>
+                    </script>
+                </div>
+            </div>
+            <div class="cart-tab">
+                <div class="cart-scroll" id="storeCityList">
+                    <script id="storeCityListTpl" type="text/html">
+                        <ul>
+                            {{each cityList as city index}}
+                            <li data-cityId="{{city.cityNo}}">{{city.cityName}}</li>
+                            {{/each}}
+                        </ul>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<script type="text/javascript" src="http://res.suning.cn/project/mvs/RES/common/script/??lib/zepto/1.1.4/zepto.min.js,buriedpoint.js?v=${resVersion}"></script>
+<script type="text/javascript" src="http://res.m.suning.com/common/script/module/lazyload/1.0.0/lazyload.js?v=${versionNo}"></script>
+<!--<script type="text/javascript" src="/js/stores.js?v=${versionNo}"></script>-->
+</body>
+</html>

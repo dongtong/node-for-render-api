@@ -1,0 +1,55 @@
+{
+  "name": "node-for-render-api",
+  "version": "0.0.1",
+  "description": "Use node for render api layer, combine with falcor to reduce data api request, optimize front-end render",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node app.js",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch -f",
+    "push:github": "git push --tags origin HEAD:master"
+  },
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "consign": "^0.1.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "falcor": "^0.1.17",
+    "falcor-express": "^0.1.2",
+    "falcor-router": "^0.4.0",
+    "morgan": "^1.7.0",
+    "request": "^2.72.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "apidoc": "^0.16.1",
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-nodemon": "^2.0.7",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongtong/node-for-render-api.git"
+  },
+  "keywords": [
+    "node",
+    "falcor",
+    "es6",
+    "express",
+    "arttemplate"
+  ],
+  "author": "dongtong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dongtong/node-for-render-api/issues"
+  },
+  "homepage": "https://github.com/dongtong/node-for-render-api#readme"
+}
